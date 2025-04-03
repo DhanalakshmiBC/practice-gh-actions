@@ -12,8 +12,9 @@ jobs:
               run: npm ci
             - name: run lint
               run: npm run lint
-              
+
     tests:
+        needs: lint
         runs-on: ubuntu-latest
         steps: 
         - name: download code
