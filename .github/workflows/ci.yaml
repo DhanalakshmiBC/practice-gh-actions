@@ -1,6 +1,18 @@
 name: Practice-workflow
 on: push
 jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: download code
+              uses: actions/checkout@v3
+            - name: Install bodejs
+              uses: actions/setup-node@v3
+            - name: install dependency
+              run: npm ci
+            - name: run lint
+              run: npm run lint
+              
     tests:
         runs-on: ubuntu-latest
         steps: 
@@ -11,7 +23,7 @@ jobs:
         - name: install dependency
           run: npm ci
         - name: run tests
-          run: npm test
+          run: npm run test
 
     build:
         needs: tests
