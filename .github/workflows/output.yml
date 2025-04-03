@@ -1,8 +1,8 @@
 name: Info of git
-on: push
+on: issues
 jobs: 
     info:
         runs-on: ubuntu-latest
         steps:
           - name: informations of entire git repo
-            run: echo "{{ toJson(github)}}"
+            run: echo "{{ toJSON(github.event)}}"
