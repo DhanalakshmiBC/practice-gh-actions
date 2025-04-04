@@ -1,5 +1,8 @@
 name: Practice-workflow
-on: push
+on: 
+    pull_reqest:
+        types:
+            - opened
 jobs:
     lint:
         runs-on: ubuntu-latest
